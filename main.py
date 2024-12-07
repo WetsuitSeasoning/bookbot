@@ -5,10 +5,10 @@ def main():
     word_count = count_words(file_contents)
     char_count = count_characters(file_contents)
 
-    
+    char_count.sort(reverse=True, key=sort_on)
 
-    print(word_count)
-    print(char_count)
+    #print(word_count)
+    #print(char_count)
 
 def count_words(text):
     words = text.split()
@@ -33,14 +33,16 @@ def count_characters(text):
     for key in chars:
         local_chars = {}
         value = chars[key]
-        local_chars[key] = value
+        local_chars["char"] = key
+        local_chars["count"] = value
         char_counts.append(local_chars)
 
     
 
     return char_counts
 
-
+def sort_on(dict):
+    return dict["count"]
 
 
 
