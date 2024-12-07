@@ -7,8 +7,7 @@ def main():
 
     char_count.sort(reverse=True, key=sort_on)
 
-    #print(word_count)
-    #print(char_count)
+    print_report(word_count, char_count)
 
 def count_words(text):
     words = text.split()
@@ -45,7 +44,18 @@ def sort_on(dict):
     return dict["count"]
 
 
+def print_report(word_count, char_count):
 
-
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"{word_count} words found in the document")
+    print("\n")
+    
+    for i in range(len(char_count)):
+        dictionary = char_count[i]
+        l_char = dictionary["char"]
+        l_count = dictionary["count"]
+        print(f"The '{l_char}' character was found {l_count} times")
+    
+    print("-- End report ---")
 
 main()
